@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d [%t] %-5level %logger - %m%n" />
+        </Console>
+
+    </Appenders>
+    <Loggers>
+        <!-- Log everything in Hibernate -->
+        <Logger name="org.hibernate" level="error" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- Log SQL statements -->
+        <Logger name="org.hibernate.SQL" level="error" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <!-- Log custom packages -->
+        <Logger name="com.zetcode" level="error" additivity="false">
+            <AppenderRef ref="Console" />
+        </Logger>
+
+        <Root level="error">
+            <AppenderRef ref="Console" />
+        </Root>
+    </Loggers>
+</Configuration>
